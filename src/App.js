@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routes from './routes';
+import Main from './main';
 import Header from './components/common/header';
 import './App.css';
 
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <Header />
-        <Routes />
+        <Main />
       </div>
     );
   }

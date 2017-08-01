@@ -10,7 +10,6 @@ class RedditUserComments extends React.Component {
 
         this.state = {
             username: '',
-            comments: Object.assign({}, this.props.reddit.comments),
             errors: {}
         };
 
@@ -27,9 +26,40 @@ class RedditUserComments extends React.Component {
         this.props.actions.getUserComments(this.state.username);
     }
 
+    createCommentTable() {
+        let rows = this.props.comments.map(child => {
+            var comment = child.data;
+            return (
+                <tr>
+                    <td>{comment.body}</td>
+                    <td>{comment.subreddit}</td>
+                    <td>{comment.score}</td>
+                    <td>{comment.link_permalink}</td>
+                </tr>
+            );
+        });
+        
+        return (
+            <table className="table table-striped table-bordered">
+                <thead>
+                    <th>Comment</th>
+                    <th>Subreddit</th>
+                    <th>Score</th>
+                    <th>Link</th>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
+        );
+    }
+
     render() {
         return (
-            <RedditUserCommentsForm onChange={this.handleChange} onSubmit={this.getUserComments} errors={this.state.errors} />
+            <div>
+                <RedditUserCommentsForm onChange={this.handleChange} onSubmit={this.getUserComments} errors={this.state.errors} />
+                {this.props.comments.length > 0 && this.createCommentTable()}
+            </div>
         );
     }
 }
@@ -37,7 +67,7 @@ class RedditUserComments extends React.Component {
 function mapStateToProps(state, ownProps) {
     debugger;
     return {
-        reddit: state.reddit
+        comments: state.reddit
     };
 }
 

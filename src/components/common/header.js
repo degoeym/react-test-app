@@ -6,6 +6,8 @@ const Header = () => {
         <nav>
             <Link to="/">Home</Link>
             {" | "}
+            <Link to="/reddit">Reddit API</Link>
+            {" | "}
             <Link to="/about">About</Link>
         </nav>
     );

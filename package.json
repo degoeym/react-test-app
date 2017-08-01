@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",
@@ -31,6 +32,7 @@
     "babel-register": "^6.24.1",
     "eslint": "^4.3.0",
     "eslint-watch": "^3.1.2",
+    "redux-immutable-state-invariant": "^2.0.0",
     "webpack": "^3.4.1",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.18.2"

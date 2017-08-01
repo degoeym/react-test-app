@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
-import redditApi from './redditApiReducer';
+import reddit from './redditApiReducer';
 
 
 const rootReducer = combineReducers({
-    redditApi
+    reddit
 });
 
 export default rootReducer;

@@ -10,6 +10,7 @@ class RedditUserComments extends React.Component {
 
         this.state = {
             username: '',
+            comments: Object.assign({}, this.props.reddit.comments),
             errors: {}
         };
 
@@ -23,7 +24,7 @@ class RedditUserComments extends React.Component {
 
     getUserComments(event) {
         event.preventDefault();
-        this.props.actions.getUserComments(this.state.username)
+        this.props.actions.getUserComments(this.state.username);
     }
 
     render() {
@@ -34,8 +35,9 @@ class RedditUserComments extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+    debugger;
     return {
-        userComments: state.userComments
+        reddit: state.reddit
     };
 }
 

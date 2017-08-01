@@ -9,7 +9,7 @@ export function getUserCommentsSuccess(userComments) {
 
 export function getUserComments(username) {
     return function(dispatch) {
-        axios.get(redditUrl + '/user/' + username + '/comments/.json')
+        axios.get(`${redditUrl}/user/${username}/comments/.json`)
         .then(comments => {
             dispatch(getUserCommentsSuccess(comments));
         }).catch(error => {

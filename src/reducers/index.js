@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import redditApi from './redditApiReducer';
+import githubApi  from './githubApiReducer';
 
 const rootReducer = combineReducers({
-    redditApi
+    redditApi,
+    githubApi
 });
 
 export default rootReducer;

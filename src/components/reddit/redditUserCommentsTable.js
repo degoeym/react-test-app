@@ -14,7 +14,7 @@ const RedditCommentsTable = ({comments}) => {
     });
     
     return (
-        <table className="table table-striped table-bordered">
+        <table className="table table-striped table-bordered table-inverse">
             <thead>
                 <tr>
                     <th>Comment</th>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RedditUserCommentsForm = ({onChange, onSubmit, errors}) => {
+const RedditUserForm = ({onChange, onSubmit, errors}) => {
     return(
         <form className="form-inline">
             <p>Enter a Reddit username.</p>
@@ -12,4 +12,4 @@ const RedditUserCommentsForm = ({onChange, onSubmit, errors}) => {
     );
 };
 
-export default RedditUserCommentsForm;
+export default RedditUserForm;

@@ -1,3 +1,3 @@
 export default {
-    redditUserComments: []
+    redditApi: {userComments: [], userSubmissions: []}
 };

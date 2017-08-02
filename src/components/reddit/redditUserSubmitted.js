@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as redditActions from '../../actions/redditApiActions';
 import RedditUserForm from './redditUserForm';
-import RedditCommentsTable from './redditUserCommentsTable';
+import RedditSubmittedTable from './redditUserSubmittedTable';
 
-class RedditUserComments extends React.Component {
+class RedditUserSubmitted extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -15,25 +15,25 @@ class RedditUserComments extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.getUserComments = this.getUserComments.bind(this);
+        this.getUserSubmitted = this.getUserSubmitted.bind(this);
     }
 
     handleChange(event) {
         this.setState({username: event.target.value});
     }
 
-    getUserComments(event) {
+    getUserSubmitted(event) {
         event.preventDefault();
-        this.props.actions.getUserComments(this.state.username);
+        this.props.actions.getUserSubmitted(this.state.username);
     }
 
     render() {
-        return (
+        return(
             <div>
                 <RedditUserForm onChange={this.handleChange} 
-                    onSubmit={this.getUserComments} errors={this.state.errors} />
+                    onSubmit={this.getUserSubmitted} errors={this.state.errors} />
                 <br />
-                {this.props.comments.length > 0 && <RedditCommentsTable comments={this.props.comments} />}
+                {this.props.submissions !== undefined && this.props.submissions.length > 0 && <RedditSubmittedTable submissions={this.props.submissions} />}
             </div>
         );
     }
@@ -42,7 +42,7 @@ class RedditUserComments extends React.Component {
 function mapStateToProps(state, ownProps) {
     debugger;
     return {
-        comments: state.redditApi.userComments
+        submissions: state.redditApi.userSubmissions
     };
 }
 
@@ -52,4 +52,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (RedditUserComments);
+export default  connect(mapStateToProps, mapDispatchToProps) (RedditUserSubmitted);

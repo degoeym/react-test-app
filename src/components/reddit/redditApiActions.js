@@ -9,6 +9,9 @@ class RedditActions extends React.Component {
                     <li>
                         <Link to={'/reddit/usercomments'}>Get User Comments</Link>
                     </li>
+                    <li>
+                        <Link to={'/reddit/usersubmitted'}>Get User Submitted Posts</Link>
+                    </li>
                 </ul>
             </div>
         );

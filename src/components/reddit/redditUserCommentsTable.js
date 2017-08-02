@@ -6,9 +6,13 @@ const RedditCommentsTable = ({comments}) => {
         return (
             <tr key={comment.id}>
                 <td>{comment.body}</td>
-                <td>{comment.subreddit}</td>
+                <td>
+                    <a href={`https://www.reddit.com/r/${comment.subreddit}`}>{comment.subreddit_name_prefixed}</a>
+                </td>
                 <td>{comment.score}</td>
-                <td>{comment.link_permalink}</td>
+                <td>
+                    <a href={comment.link_permalink} target="_blank">Direct Link</a>
+                </td>
             </tr>
         );
     });

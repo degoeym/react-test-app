@@ -27,6 +27,10 @@ class RedditUserSubmitted extends React.Component {
         this.props.actions.getUserSubmitted(this.state.username);
     }
 
+    componentWillUnmount() {
+        this.props.actions.unloadRedditSubmittedState();
+    }
+
     render() {
         return(
             <div>

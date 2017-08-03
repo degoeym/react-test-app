@@ -27,6 +27,10 @@ class RedditUserComments extends React.Component {
         this.props.actions.getUserComments(this.state.username);
     }
 
+    componentWillUnmount() {
+        this.props.actions.unloadRedditCommentsState();
+    }
+
     render() {
         return (
             <div>

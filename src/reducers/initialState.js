@@ -1,6 +1,10 @@
 export default {
-    redditApi: {userComments: [], userSubmissions: []},
+    redditApi: {
+        userComments: [], 
+        userSubmissions: []
+    },
     githubApi: {
-        userDetails: []
+        userDetails: [],
+        userRepos: []
     }
 };

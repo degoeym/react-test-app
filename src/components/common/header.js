@@ -8,6 +8,8 @@ const Header = () => {
             {" | "}
             <Link to="/reddit">Reddit API</Link>
             {" | "}
+            <Link to="/github">GitHub API</Link>
+            {" | "}
             <Link to="/about">About</Link>
         </nav>
     );

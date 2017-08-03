@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as githubActions from '../../actions/githubApiActions';
 import GithubUserForm from './githubUserForm';
+import GithubUserDetails from './githubUserDetails';
 
 class GithubUserPage extends React.Component {
     constructor(props, context) {
@@ -31,17 +32,22 @@ class GithubUserPage extends React.Component {
     }
 
     render() {
+        debugger;
         return (
             <div>
                 <GithubUserForm onChange={this.handleChange} 
                     onSubmit={this.getUserDetails} errors={this.state.errors} />
                 <br/>
+                {this.state.userDetails && 
+                    <GithubUserDetails user={this.state.userDetails} 
+                        repos={this.state.userRepos} />}
             </div>
         );
     }
 }
 
 function mapStateToProps(state, ownState) {
+    debugger;
     return {
         userDetails: state.githubApi.userDetails,
         userRepos: state.githubApi.userRepos
@@ -49,6 +55,7 @@ function mapStateToProps(state, ownState) {
 }
 
 function mapDispatchToProps(dispatch) {
+    debugger;
     return {
         actions: bindActionCreators(githubActions, dispatch)
     };

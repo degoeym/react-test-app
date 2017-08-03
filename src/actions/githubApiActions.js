@@ -16,11 +16,13 @@ export function unloadGithubUserState() {
 }
 
 export function getUserDetails(username) {
+    debugger;
     return function(dispatch) {
         axios.get(`${githubUri}/users/${username}`)
-        .then(userDetails => {
-            dispatch(getUserDetailsSuccess(userDetails));
-            getUserRepos(userDetails.repos_url);
+        .then(({data}) => {
+            debugger;
+            dispatch(getUserDetailsSuccess(data));
+            getUserRepos(data.repos_url);
         }).catch(error => {
             throw(error);
         });
@@ -28,10 +30,12 @@ export function getUserDetails(username) {
 }
 
 export function getUserRepos(userReposUri) {
+    debugger;
     return function(dispatch) {
         axios.get(userReposUri)
-        .then(userRepos => {
-            dispatch(getUserReposSuccess(userRepos));
+        .then(({data}) => {
+            debugger;
+            dispatch(getUserReposSuccess(data));
         }).catch(error => {
             throw(error);
         });

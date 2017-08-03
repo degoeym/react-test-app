@@ -14,6 +14,7 @@ class GithubUserPage extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.getUserDetails = this.getUserDetails.bind(this);
     }
 
     handleChange(event) {

@@ -38,8 +38,8 @@ class GithubUserPage extends React.Component {
                 <GithubUserForm onChange={this.handleChange} 
                     onSubmit={this.getUserDetails} errors={this.state.errors} />
                 <br/>
-                {this.state.userDetails && 
-                    <GithubUserDetails user={this.state.userDetails} 
+                {this.props.userDetails && this.props.userRepos.length > 0 && 
+                    <GithubUserDetails user={this.props.userDetails} 
                         repos={this.state.userRepos} />}
             </div>
         );
@@ -49,7 +49,7 @@ class GithubUserPage extends React.Component {
 function mapStateToProps(state, ownState) {
     debugger;
     return {
-        userDetails: state.githubApi.userDetails,
+        userDetails: state.githubApi.userDetails.userDetails,
         userRepos: state.githubApi.userRepos
     };
 }

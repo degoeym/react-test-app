@@ -4,7 +4,7 @@ export default {
         userSubmissions: []
     },
     githubApi: {
-        userDetails: {},
+        userDetails: [],
         userRepos: []
     }
 };

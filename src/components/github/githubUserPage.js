@@ -40,7 +40,7 @@ class GithubUserPage extends React.Component {
                 <br/>
                 {this.props.userDetails && this.props.userRepos.length > 0 && 
                     <GithubUserDetails user={this.props.userDetails} 
-                        repos={this.state.userRepos} />}
+                        repos={this.props.userRepos} />}
             </div>
         );
     }

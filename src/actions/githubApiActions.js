@@ -21,8 +21,12 @@ export function getUserDetails(username) {
         axios.get(`${githubUri}/users/${username}`)
         .then(({data}) => {
             debugger;
-            dispatch(getUserDetailsSuccess(data));
-            getUserRepos(data.repos_url);
+            Promise.all([
+                dispatch(getUserDetailsSuccess(data)),
+                dispatch(getUserRepos(data.repos_url))
+            ]);
+            //dispatch(getUserDetailsSuccess(data));
+            //getUserRepos(data.repos_url);
         }).catch(error => {
             throw(error);
         });

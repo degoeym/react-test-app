@@ -10,10 +10,7 @@ export default function githubApiReducer(state = initialState.githubApi, action)
         case types.GET_USER_DETAILS:
             return {
                 ...state,
-                userDetails: {
-                    ...state.userDetails,
-                    userDetails: action.userDetails
-                }
+                userDetails: action.userDetails
             };
 
         case types.GET_USER_REPOS:

@@ -10,7 +10,7 @@ const GithubUserDetails = ({user, repos}) => {
                     {user.login}
                     {' | '}
                     <span>
-                        <small>{user.name}</small>
+                        {user.name && <small>{user.name}</small>}
                         <a href={user.html_url}><small>Profile</small></a>
                     </span>
                 </h2>
@@ -19,13 +19,10 @@ const GithubUserDetails = ({user, repos}) => {
                         <img className="img-responsive img-thumbnail" src={user.avatar_url} alt="Profile" title={user.name} />
                     </div>
                     <div className="col-sm-10 col-xs-12">
-                        <span><b>Location: </b>{user.location}</span>
-                        <br/>
-                        <span><b>Email: </b><a href={`mailto:${user.email}`}>
-                            {user.email}</a></span>
-                        <br/>
-                        <span><b>Blog: </b><a href={user.blog} target="_blank">{user.blog}</a></span>
-                        <br/>
+                        {user.location && <div><b>Location: </b>{user.location}</div>}
+                        {user.email && <div><b>Email: </b><a href={`mailto:${user.email}`}>
+                            {user.email}</a></div>}
+                        {user.blog && <div><b>Blog: </b><a href={user.blog} target="_blank">{user.blog}</a></div>}
                         <b>Public repos: </b>{user.public_repos}
                         <br/>
                         <b>Followers: </b>{user.followers}

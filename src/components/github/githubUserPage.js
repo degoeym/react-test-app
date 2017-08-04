@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as githubActions from '../../actions/githubApiActions';
 import GithubUserForm from './githubUserForm';
 import GithubUserDetails from './githubUserDetails';
+import GithubUserRepos from './githubUserReposTable';
 
 class GithubUserPage extends React.Component {
     constructor(props, context) {
@@ -38,9 +39,12 @@ class GithubUserPage extends React.Component {
                 <GithubUserForm onChange={this.handleChange} 
                     onSubmit={this.getUserDetails} errors={this.state.errors} />
                 <br/>
-                {this.props.userDetails && this.props.userRepos.length > 0 && 
+                {Object.keys(this.props.userDetails).length > 0 && 
                     <GithubUserDetails user={this.props.userDetails} 
                         repos={this.props.userRepos} />}
+                <br/>
+                {this.props.userRepos.length > 0 && 
+                    <GithubUserRepos repos={this.props.userRepos} />}
             </div>
         );
     }

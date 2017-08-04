@@ -49,7 +49,7 @@ class GithubUserPage extends React.Component {
 function mapStateToProps(state, ownState) {
     debugger;
     return {
-        userDetails: state.githubApi.userDetails.userDetails,
+        userDetails: state.githubApi.userDetails,
         userRepos: state.githubApi.userRepos
     };
 }

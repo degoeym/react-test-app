@@ -1,7 +1,9 @@
 import * as types from './actionTypes';
 import axios from 'axios';
 
-let redditUrl = 'http://www.reddit.com';
+var axiosInstance = axios.create({
+    baseURL: 'https://www.reddit.com'
+});
 
 export function getUserCommentsSuccess(userComments) {
     return { type: types.GET_USER_COMMENTS, userComments };
@@ -21,7 +23,7 @@ export function unloadRedditSubmittedState() {
 
 export function getUserComments(username) {
     return function(dispatch) {
-        axios.get(`${redditUrl}/user/${username}/comments/.json`)
+        axiosInstance.get(`/user/${username}/comments/.json`)
         .then(({data}) => {
             dispatch(getUserCommentsSuccess(data.data.children))
         }).catch(error => {
@@ -32,7 +34,7 @@ export function getUserComments(username) {
 
 export function getUserSubmitted(username) {
     return function(dispatch) {
-        axios.get(`${redditUrl}/user/${username}/submitted/.json`)
+        axiosInstance.get(`/user/${username}/submitted/.json`)
         .then(({data}) => {
             dispatch(getUserSubmittedSuccess(data.data.children))
         }).catch(error => {
